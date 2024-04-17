@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ako Maori</title>
+    <link rel="icon" type="image/x-icon" href="https://cws.auckland.ac.nz/ako/api/Logo">
+
+    <script defer="true" src="awri813.js"></script>
+    <link href="awri813.css" rel="stylesheet" type="text/css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <div id="header">
+        <table class="header">
+            <tr>
+                <th class="header">Ako Māori</th>
+                <th style="color: black; text-align: right;" id="logon">Logged Out</th>
+            </tr>
+            <tr>
+                <th class="logo" onclick="showHome();"><img src="https://cws.auckland.ac.nz/ako/api/Logo" width="100">
+                </th>
+                <th class="tab" id="homeTab" onclick="showHome();">&#127968; Home</th>
+                <th class="tab" id="guestbookTab" onclick="showGuestbook();">&#9997; Guest Book</th>
+                <th class="tab" id="shopTab" onclick="showShop();">&#128722; Shop</th>
+                <th class="tab" id="eventsTab" onclick="showEvents();">&#128197; Events</th>
+                <th class="tab" id="learnTab" onclick="showLearn();">&#128214; Learn</th>
+                <th class="tab" id="registerTab" onclick="showRegister();">&#128106; Register</th>
+                <th class="tab" id="loginTab" onclick="showLogin();">&#128105; Login</th>
+                <th class="tab" id="logoutTab" onclick="logout();" style="display: none;">&#128105; Logout</th>
+                <th class="tab" id="userlogTab" onclick="showUserlog();">&#8987; User Log</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="homeSection" class="section">
+        <h1>Welcome to Ako Māori</h1>
+        <p>Ako Māori is a platform to help you learn te reo Māori.</p>
+    </div>
+
+    <div id="guestbookSection" class="section">
+        <h1>&#9997; Guest Book</h1>
+        <h3>New Entry</h3>
+        <form id="newEntryGuestbook" method="post">
+            <label>Name</label>
+            <input type="text" id="guestbookNameInput" placeholder="Enter name...">
+            <br><br>
+            <label>Comment</label>
+            <input type="text" id="guestbookCommentInput" placeholder="Enter comment...">
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <hr>
+        <h3>Recent Entries</h3>
+        <button type="small" onclick="refreshGuestbook()">Refresh</button>
+        <iframe id="commentsiframe" src="https://cws.auckland.ac.nz/ako/api/Comments" height="1400"
+            width="100%"></iframe>
+    </div>
+
+    <div id="shopSection" class="section">
+        <h1>&#128722; Shop</h1>
+        <div id="shopLogoutWarning">
+            <h2>You may only purchase items if you are logged in.</h2>
+            <button type="small" onclick="showLogin()">Login</button>
+            <br><br>
+        </div>
+        <label>Search (enter search term followed by enter key)</label>
+        <input type="text" id="productsSearch" placeholder="Search for a product name...">
+        <div id="productsList"></div>
+        <div id="purchaseSuccess" style="display: none;">
+            <h2>Thanks for your purchase!</h2>
+            <button type="small" onclick="returnProductsList()">Return to Products List</button>
+        </div>
+    </div>
+
+    <div id="registerSection" class="section">
+        <h1>&#128106; Register</h1>
+        <form id="registerUser" method="post">
+            <label>Username</label>
+            <input type="text" id="registerUsernameInput" placeholder="Enter username...">
+            <br><br>
+            <label>Password</label>
+            <input type="password" id="registerPasswordInput" placeholder="Enter password...">
+            <br><br>
+            <label>Address</label>
+            <input type="text" id="registerAddressInput" placeholder="Enter address...">
+            <br><br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <div id="loginSection" class="section">
+        <h1>&#128105; Login</h1>
+        <form id="loginUser" method="post">
+            <label>Username</label>
+            <input type="text" id="loginUsernameInput" placeholder="Enter username...">
+            <br><br>
+            <label>Password</label>
+            <input type="password" id="loginPasswordInput" placeholder="Enter password...">
+            <br><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="eventsSection" class="section">
+        <h1>&#128197; Events</h1>
+        <div id="eventsList"></div>
+    </div>
+
+    <div id="learnSection" class="section">
+        <h1>&#128214; Learn</h1>
+        <br>
+        <h3>A new interactive way to learn te reo Māori - coming soon.</h3>
+    </div>
+
+    <div id="userlogSection" class="section">
+        <h1>&#8987; User Log</h1>
+        <br>
+        <div id="korudiv" type="infographic"></div>
+    </div>
+
+    <div id="footer" class="footer">
+        <p>Version <em id="version"></em></p>
+    </div>
+</body>
+
+</html>
